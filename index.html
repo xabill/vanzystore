@@ -1,10 +1,11 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VanzyStore</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VanzyStore Dashboard</title>
 
 <style>
 *{
@@ -15,64 +16,181 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#4f46e5;
+background:#f5f7fb;
 }
 
 .header{
-padding:30px;
-color:white;
-}
-
-.profile{
+height:60px;
+background:#fff;
 display:flex;
 align-items:center;
-gap:15px;
+justify-content:space-between;
+padding:0 15px;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+position:sticky;
+top:0;
+z-index:100;
 }
 
 .logo{
-width:70px;
-height:70px;
+font-size:20px;
+font-weight:bold;
+color:#2563eb;
+}
+
+.menu-btn{
+font-size:24px;
+cursor:pointer;
+}
+
+.sidebar{
+position:fixed;
+left:-280px;
+top:0;
+width:280px;
+height:100%;
 background:white;
-border-radius:50%;
+transition:.3s;
+overflow:auto;
+box-shadow:0 0 20px rgba(0,0,0,.15);
+z-index:999;
+}
+
+.sidebar.active{
+left:0;
+}
+
+.sidebar-header{
+padding:20px;
+font-size:22px;
+font-weight:bold;
+color:#2563eb;
+border-bottom:1px solid #eee;
+}
+
+.menu{
+padding:10px;
+}
+
+.menu h4{
+margin:15px 10px;
+color:#666;
+font-size:13px;
+text-transform:uppercase;
+}
+
+.menu a{
+display:block;
+padding:12px 15px;
+text-decoration:none;
+color:#333;
+border-radius:10px;
+margin-bottom:5px;
+}
+
+.menu a:hover{
+background:#eef4ff;
+color:#2563eb;
+}
+
+.content{
+padding:20px;
+}
+
+.welcome{
+background:linear-gradient(135deg,#2563eb,#4f46e5);
+color:white;
+padding:25px;
+border-radius:20px;
+margin-bottom:20px;
 }
 
 .stats{
-background:white;
-margin:20px;
-padding:25px;
-border-radius:20px;
-display:flex;
-justify-content:space-around;
-text-align:center;
-}
-
-.stats h2{
-color:#4f46e5;
-}
-
-.section{
-background:#f8fafc;
-padding:25px;
-border-radius:30px 30px 0 0;
-min-height:500px;
-}
-
-.grid{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-bottom:20px;
+}
+
+.stat{
+background:white;
+padding:15px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.stat h2{
+color:#2563eb;
+margin-bottom:5px;
+}
+
+.section-title{
+margin-bottom:15px;
+font-size:18px;
+font-weight:bold;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(2,1fr);
 gap:15px;
-margin-top:20px;
 }
 
 .card{
 background:white;
-padding:25px;
-border-radius:20px;
+padding:20px;
+border-radius:15px;
 text-align:center;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
+box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
 
-.bottom{
+.card-icon{
+font-size:35px;
+margin-bottom:10px;
+}
+
+.order-box{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.order{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid #eee;
+}
+
+.pending{
+color:orange;
+font-weight:bold;
+}
+
+.success{
+color:green;
+font-weight:bold;
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.4);
+display:none;
+z-index:998;
+}
+
+.overlay.active{
+display:block;
+}
+
+.bottom-nav{
 position:fixed;
 bottom:0;
 left:0;
@@ -80,86 +198,161 @@ right:0;
 background:white;
 display:flex;
 justify-content:space-around;
-padding:15px;
+padding:12px;
+box-shadow:0 -2px 10px rgba(0,0,0,.1);
 }
 
-.bottom a{
+.bottom-nav a{
 text-decoration:none;
 color:#444;
+text-align:center;
+font-size:13px;
+}
+
+@media(max-width:600px){
+.cards{
+grid-template-columns:1fr 1fr;
+}
 }
 </style>
 </head>
 
 <body>
 
+<div class="overlay" id="overlay"></div>
+
+<div class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+🚀 VanzyStore
+</div>
+
+<div class="menu">
+
+<h4>Menu</h4>
+
+<a href="#">🏠 Dashboard</a>
+
+<a href="#">🖥️ Provider Panel</a>
+<a href="#">🛒 Beli Panel</a>
+<a href="#">⚙️ Kelola Panel</a>
+<a href="#">📋 Riwayat Order Panel</a>
+
+<a href="#">☁️ VPS Services</a>
+
+<a href="#">🌐 Buy Domain</a>
+<a href="#">🔗 Connect Cloudflare</a>
+<a href="#">🔄 Transfer Domain</a>
+<a href="#">📅 Perpanjang Domain</a>
+
+<a href="#">💳 Billing</a>
+
+<a href="#">🎫 Support Ticket</a>
+
+<a href="#">⚙️ Settings</a>
+
+</div>
+</div>
+
 <div class="header">
-
-<div class="profile">
-<div class="logo"></div>
-
-<div>
-<h1>VanzyStore</h1>
-<p>⭐ 4.9 | Toko Online Premium</p>
-</div>
+<div class="menu-btn" onclick="openMenu()">☰</div>
+<div class="logo">VanzyStore</div>
+<div>👤</div>
 </div>
 
+<div class="content">
+
+<div class="welcome">
+<h2>Selamat Datang</h2>
+<p>Kelola Hosting, VPS, Domain dan Panel Anda</p>
 </div>
 
 <div class="stats">
 
-<div>
+<div class="stat">
 <h2>12.5K</h2>
-<p>Total Terjual</p>
+<p>Total Order</p>
 </div>
 
-<div>
+<div class="stat">
 <h2>8.2K</h2>
 <p>Pelanggan</p>
 </div>
 
-<div>
+<div class="stat">
 <h2>98%</h2>
 <p>Kepuasan</p>
 </div>
 
 </div>
 
-<div class="section">
-
-<h2>Layanan VanzyStore</h2>
-
-<div class="grid">
-
-<div class="card">
-🛒
-<h3>Produk</h3>
+<div class="section-title">
+Layanan VanzyStore
 </div>
 
+<div class="cards">
+
 <div class="card">
-💳
-<h3>Pembayaran</h3>
+<div class="card-icon">🖥️</div>
+<h3>Panel Pterodactyl</h3>
 </div>
 
 <div class="card">
-📦
-<h3>Pesanan</h3>
+<div class="card-icon">⚙️</div>
+<h3>Custom Feature</h3>
 </div>
 
 <div class="card">
-👤
-<h3>Akun</h3>
+<div class="card-icon">☁️</div>
+<h3>VPS Hosting</h3>
+</div>
+
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Domain</h3>
+</div>
+
+</div>
+
+<div class="order-box">
+
+<h3>Riwayat Transaksi</h3>
+
+<div class="order">
+<span>Panel Premium</span>
+<span class="pending">Rp149.900</span>
+</div>
+
+<div class="order">
+<span>Domain .MY.ID</span>
+<span class="success">Rp7.000</span>
 </div>
 
 </div>
 
 </div>
 
-<div class="bottom">
+<div class="bottom-nav">
 <a href="#">🏠<br>Home</a>
 <a href="#">🔍<br>Cari</a>
-<a href="#">🛒<br>Keranjang</a>
-<a href="#">👤<br>Profil</a>
+<a href="#">🛒<br>Order</a>
+<a href="#">👤<br>Akun</a>
 </div>
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+function openMenu(){
+sidebar.classList.toggle("active");
+overlay.classList.toggle("active");
+}
+
+overlay.onclick = () => {
+sidebar.classList.remove("active");
+overlay.classList.remove("active");
+}
+</script>
 
 </body>
 </html>
