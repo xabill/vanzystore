@@ -1,0 +1,27 @@
+:root{
+--primary:#2563eb;
+--bg:#f8fafc;
+--card:#ffffff;
+--text:#111827;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:Inter,Arial,sans-serif;
+}
+
+.card{
+background:var(--card);
+border-radius:20px;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.gradient{
+background:linear-gradient(
+135deg,
+#2563eb,
+#4f46e5
+);
+}
