@@ -2,216 +2,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VanzyStore Cloud</title><style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f1f5f9;
-color:#111827;
-padding-bottom:80px;
-}
-
-.header{
-background:linear-gradient(135deg,#2563eb,#4f46e5);
-padding:20px;
-color:white;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 4px 15px rgba(0,0,0,.1);
-}
-
-.logo{
-font-size:28px;
-font-weight:800;
-}
-
-.subtitle{
-opacity:.9;
-margin-top:5px;
-}
-
-.container{
-padding:15px;
-}
-
-.banner{
-background:linear-gradient(135deg,#2563eb,#4f46e5);
-border-radius:20px;
-padding:20px;
-color:white;
-margin-bottom:20px;
-}
-
-.btn{
-display:inline-block;
-margin-top:10px;
-padding:10px 15px;
-background:white;
-color:#2563eb;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-bottom:20px;
-}
-
-.stat{
-background:white;
-padding:15px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 2px 10px rgba(0,0,0,.05);
-}
-
-.stat h2{
-color:#2563eb;
-}
-
-.title{
-font-size:20px;
-font-weight:bold;
-margin-bottom:15px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:18px;
-text-align:center;
-box-shadow:0 3px 12px rgba(0,0,0,.06);
-}
-
-.card .icon{
-font-size:35px;
-margin-bottom:10px;
-}
-
-.box{
-background:white;
-padding:20px;
-border-radius:18px;
-margin-top:20px;
-box-shadow:0 3px 12px rgba(0,0,0,.06);
-}
-
-.item{
-display:flex;
-justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid #eee;
-}
-
-.item:last-child{
-border-bottom:none;
-}
-
-.price{
-color:#10b981;
-font-weight:bold;
-}
-
-.bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:white;
-display:flex;
-justify-content:space-around;
-padding:12px;
-box-shadow:0 -3px 10px rgba(0,0,0,.08);
-}
-
-.bottom-nav a{
-text-decoration:none;
-color:#444;
-font-size:13px;
-text-align:center;
-}
-
-.badge{
-background:#10b981;
-color:white;
-padding:4px 10px;
-border-radius:20px;
-font-size:12px;
-}
-</style></head><body><div class="header">
-<div class="logo">VanzyStore</div>
-<div class="subtitle">Cloud • Hosting • VPS • Domain</div>
-</div><div class="container"><div class="banner">
-<h2>🚀 Selamat Datang di VanzyStore</h2>
-<p>Kelola VPS, Domain, Hosting dan Panel dengan mudah.</p>
-<a href="#" class="btn">Order Sekarang</a>
-</div><div class="stats">
+<title>VanzyStore</title><link rel="stylesheet" href="style.css">
+</head><body><header class="header">
+<div>
+<h1 class="logo">VanzyStore</h1>
+<p class="tagline">Cloud • Hosting • Domain • Panel</p>
+</div>
+<button id="themeBtn">🌙</button>
+</header><main class="container"><section class="hero">
+<h2>Kelola Hosting dan Layanan Digital</h2>
+<p>Hosting, VPS, Domain, Panel dan kebutuhan digital dalam satu dashboard.</p><div class="hero-buttons">
+<button>Order Sekarang</button>
+<button>Hubungi Kami</button>
+</div>
+</section><section class="stats">
 <div class="stat">
-<h2>12K+</h2>
+<h3>12K+</h3>
 <p>Order</p>
 </div><div class="stat">
-<h2>8K+</h2>
+<h3>8K+</h3>
 <p>User</p>
 </div><div class="stat">
-<h2>99%</h2>
+<h3>99%</h3>
 <p>Rating</p>
 </div>
-</div><div class="title">Layanan Utama</div><div class="cards"><div class="card">
-<div class="icon">🖥️</div>
-<h3>Panel Pterodactyl</h3>
+</section><h2 class="section-title">Layanan</h2><section class="services"><div class="card">
+🖥️
+<h3>Panel Hosting</h3>
 </div><div class="card">
-<div class="icon">☁️</div>
-<h3>VPS Hosting</h3>
+☁️
+<h3>VPS</h3>
 </div><div class="card">
-<div class="icon">🌐</div>
+🌐
 <h3>Domain</h3>
 </div><div class="card">
-<div class="icon">⚙️</div>
-<h3>Custom Feature</h3>
-</div><div class="card">
-<div class="icon">🎫</div>
-<h3>Support Ticket</h3>
-</div><div class="card">
-<div class="icon">💳</div>
+💳
 <h3>Billing</h3>
-</div></div><div class="box">
-<h3>🔥 Produk Populer</h3><div class="item">
+</div><div class="card">
+🎫
+<h3>Support</h3>
+</div><div class="card">
+⚙️
+<h3>Settings</h3>
+</div></section><section class="box">
+<h2>Produk Populer</h2><div class="item">
 <span>Panel Unlimited</span>
-<span class="price">Rp10.000</span>
+<b>Rp10.000</b>
 </div><div class="item">
-<span>VPS 4GB RAM</span>
-<span class="price">Rp35.000</span>
+<span>VPS 4GB</span>
+<b>Rp35.000</b>
 </div><div class="item">
 <span>Domain .MY.ID</span>
-<span class="price">Rp7.000</span>
+<b>Rp7.000</b>
 </div>
-</div><div class="box">
-<h3>📦 Riwayat Order</h3><div class="item">
-<span>Panel Premium</span>
-<span class="badge">Aktif</span>
-</div><div class="item">
-<span>Domain vanzycloyd.my.id</span>
-<span class="badge">Aktif</span>
-</div>
-</div></div><div class="bottom-nav">
+</section></main><nav class="bottom-nav">
 <a href="#">🏠<br>Home</a>
 <a href="#">🛒<br>Order</a>
 <a href="#">🌐<br>Domain</a>
 <a href="#">👤<br>Akun</a>
-</div></body>
+</nav><script src="app.js"></script></body>
 </html>
